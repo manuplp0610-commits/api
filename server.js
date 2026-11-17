@@ -60,6 +60,14 @@ app.get("/api/console", (req, res) => {
 
   res.json(console);
 });
+// Récupérer les businessInfo
+app.get("/api/businessInfo", (req, res) => {
+  const businessInfoPath = path.join(__dirname, "data", "businessInfo.json");
+
+  const businessInfo = JSON.parse(fs.readFileSync(businessInfoPath, "utf-8"));
+
+  res.json(businessInfo);
+});
 
 // Démarrer le serveur
 app.listen(PORT, () => {
