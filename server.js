@@ -52,6 +52,14 @@ app.get("/api/computer", (req, res) => {
 
   res.json(computer);
 });
+// Récupérer les console
+app.get("/api/console", (req, res) => {
+  const consolePath = path.join(__dirname, "data", "console.json");
+
+  const console = JSON.parse(fs.readFileSync(consolePath, "utf-8"));
+
+  res.json(console);
+});
 
 // Démarrer le serveur
 app.listen(PORT, () => {
